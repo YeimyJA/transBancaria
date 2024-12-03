@@ -25,20 +25,31 @@ public class Desafio {
         Scanner teclado = new Scanner(System.in);
             while (opcion != 9) {
                      System.out.println(menu);
-                    opcion = teclado.nextInt();}
+                    opcion = teclado.nextInt();
 
                         switch (opcion) {
                             case 1:
                                 System.out.println("El saldo actualizado es: "+saldo+"$");
                                 break;
                             case 2:
-                                System.out.println("¿CUál es el valor que desea retirar?");
-                                double = valorRetirar = teclado.nextDouble();
-                                if (saldo ) {
-                                    
+                                System.out.println("¿Cuál es el valor que desea retirar?");
+                                double valorRetirar = teclado.nextDouble();
+                                if (valorRetirar > saldo ) {
+                                    System.out.println("Saldo insuficiente");
+                                    }else{
+                                    saldo -= valorRetirar;
+                                    System.out.println("El saldo actualizado es: "+saldo);
+                                    break;
                                 }
-                            default:
+                            case 3:
+                                System.out.println("¿Cuál es el valor que desea depositar?");
+                                double valorADepositar = teclado.nextDouble();
+                                saldo += valorADepositar;
+                                System.out.println("El saldo actualizado es: "+saldo);
                                 break;
+                            default:
+                                System.out.println("Opción incorrecta");
+                            }
                         }
                     }
                 }
